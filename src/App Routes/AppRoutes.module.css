@@ -1,0 +1,8 @@
+.container {
+  display: "flex";
+  min-height: 75vh;
+  margin: 0 auto;
+  justify-content: space-between;
+  flex-wrap: "wrap";
+  width: 100%;
+}
