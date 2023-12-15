@@ -7,7 +7,7 @@ export default function Header() {
     <div>
       <nav className={styles.menu}>
         <Link to="/">
-          <img className={styles.logo} src={logo} alt="Costs" />
+          {/* <img className={styles.logo} src={logo} alt="Costs" /> */}
         </Link>
         <ul className={styles.menu_items}>
           <li className={styles.menu_items}>

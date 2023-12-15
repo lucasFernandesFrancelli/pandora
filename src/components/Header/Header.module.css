@@ -4,6 +4,7 @@
   padding: 1em;
   background-color: #222;
   box-shadow: #222 0px 0px 10px;
+  max-height: 10vh;
 }
 
 .menu_items {

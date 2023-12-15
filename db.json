@@ -1,33 +1,22 @@
 {
   "projects": [
     {
-      "name": "asdasdasasdasdasdad",
-      "investment": 0,
+      "name": "Novo projeto 2",
+      "investment": "1000",
       "category": {
-        "id": "1",
-        "name": "Infra"
-      },
-      "cost": 0,
-      "services": [],
-      "id": 1
-    },
-    {
-      "name": "Novo projeto",
-      "investment": "2",
-      "category": {
-        "id": "3",
-        "name": "Design"
+        "id": "2",
+        "name": "Desenvolvimento"
       },
       "cost": 0,
       "services": [],
       "id": 2
     },
     {
-      "name": "Lucas F",
-      "investment": "2",
+      "name": "TESTE",
+      "investment": "1533322",
       "category": {
-        "id": "3",
-        "name": "Design"
+        "id": "1",
+        "name": "Infra"
       },
       "cost": 0,
       "services": [],

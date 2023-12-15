@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
-import style from "./CreateProjectModal.module.css";
+import style from "./UpdateProjectModal.module.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 
-export default function CreateProjectModal({ isOpen, setIsOpen, setProjects }) {
+export default function UpdateProjectModal({
+  isUpdateModalOpen,
+  setIsUpdateModalOpen,
+  setProjects,
+  projectId,
+}) {
   const [projectName, setProjectName] = useState("");
   const [projectInvestment, setProjectInvestment] = useState(0);
   const [projectCategory, setProjectCategory] = useState({});
@@ -24,13 +29,26 @@ export default function CreateProjectModal({ isOpen, setIsOpen, setProjects }) {
         setCategories(data);
       })
       .catch((err) => console.log(err));
+
+    fetch(`http://localhost:5000/projects/${projectId}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setProjectName(data.name);
+        setProjectInvestment(data.investment);
+        setProjectCategory(data.category);
+      })
+      .catch((err) => console.log(err));
   }, []);
 
   function sendProject(e) {
     e.preventDefault();
-
-    fetch("http://localhost:5000/projects", {
-      method: "POST",
+    fetch(`http://localhost:5000/projects/${projectId}`, {
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
@@ -44,8 +62,7 @@ export default function CreateProjectModal({ isOpen, setIsOpen, setProjects }) {
     })
       .then((response) => response.json())
       .then(() => {
-        toast.success("Projeto criado com sucesso!");
-        handleResetInputValues();
+        toast.success("Projeto editado com sucesso!");
         fetch("http://localhost:5000/projects", {
           method: "GET",
           headers: {
@@ -55,25 +72,19 @@ export default function CreateProjectModal({ isOpen, setIsOpen, setProjects }) {
           .then((response) => response.json())
           .then((data) => {
             setProjects(data);
+            setIsUpdateModalOpen(false);
           })
           .catch((err) => console.log(err));
       })
-      .catch((err) => console.log(err));
+      .catch((err) => toast.error("Erro ao editar o projeto!"));
   }
 
-  function handleResetInputValues() {
-    setIsOpen(false);
-    setProjectName("");
-    setProjectInvestment(0);
-    setProjectCategory("");
-  }
-
-  if (isOpen) {
+  if (isUpdateModalOpen) {
     return (
       <div className={style.background}>
         <div className={style.modal}>
           <div className={style.modal_content}>
-            <h1>Criar Projeto</h1>
+            <h1>Editar Projeto</h1>
 
             <div className={style.project_form}>
               <form onSubmit={sendProject}>
@@ -125,12 +136,7 @@ export default function CreateProjectModal({ isOpen, setIsOpen, setProjects }) {
                   </label>
                 </div>
                 <div className={style.buttons}>
-                  <button
-                    onClick={() => handleResetInputValues()}
-                    className={style.close_window}
-                  >
-                    Fechar
-                  </button>
+                  <button className={style.close_window}>Fechar</button>
                   <button type="submit" className={style.submit_button}>
                     Enviar
                   </button>
