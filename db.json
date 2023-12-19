@@ -2,24 +2,35 @@
   "projects": [
     {
       "name": "Projeto 1",
-      "investment": "10000",
-      "category": {
-        "id": 1,
-        "name": "Infra"
-      },
-      "cost": 0,
-      "services": [],
-      "id": 1
-    },
-    {
-      "name": "TESTE",
-      "investment": "0213",
+      "investment": "1200",
       "category": {
         "id": "2",
         "name": "Desenvolvimento"
       },
       "cost": 0,
       "services": [],
+      "id": 1
+    },
+    {
+      "name": "Projeto 2 ATUALIZADO",
+      "investment": "5000",
+      "category": {
+        "id": "3",
+        "name": "Design"
+      },
+      "cost": 0,
+      "services": [
+        {
+          "name": "Lucas F",
+          "cost": "1",
+          "description": "asdasdasd"
+        },
+        {
+          "name": "TESTE",
+          "cost": "3",
+          "description": "asdasdasda"
+        }
+      ],
       "id": 2
     }
   ],
@@ -39,6 +50,44 @@
     {
       "id": 4,
       "name": "Planejamento"
+    }
+  ],
+  "services": [
+    {
+      "name": "Serviço teste",
+      "cost": "12000",
+      "description": "Um servicaslkdasldjasldjkaskldalss",
+      "project": {
+        "id": "1"
+      },
+      "id": 1
+    },
+    {
+      "name": "TESTE",
+      "cost": "4",
+      "description": "asdasdasd",
+      "project": {
+        "id": "2"
+      },
+      "id": 2
+    },
+    {
+      "name": "Lucas F",
+      "cost": "1",
+      "description": "asdasdasd",
+      "project": {
+        "id": "2"
+      },
+      "id": 3
+    },
+    {
+      "name": "TESTE",
+      "cost": "3",
+      "description": "asdasdasda",
+      "project": {
+        "id": "2"
+      },
+      "id": 4
     }
   ]
 }

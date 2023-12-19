@@ -8,7 +8,6 @@ import Loader from "../../components/Loader/Loader";
 
 import { FaSadTear } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import Project from "../Project/Project";
 
 export default function Projects() {
   const [isOpen, setIsOpen] = useState(false);
