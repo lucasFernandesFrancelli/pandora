@@ -4,12 +4,20 @@ import CreateProjectModal from "./CreateProjectModal/CreateProjectModal";
 import { BsPencil, BsTrash } from "react-icons/bs";
 import { toast } from "react-toastify";
 import UpdateProjectModal from "./UpdateProjectModal/UpdateProjectModal";
+import Loader from "../../components/Loader/Loader";
+
+import { FaSadTear } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import Project from "../Project/Project";
 
 export default function Projects() {
   const [isOpen, setIsOpen] = useState(false);
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
   const [projects, setProjects] = useState([]);
   const [selectedProject, setSelectedProject] = useState(null);
+  const [removeLoading, setRemoveLoading] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleSelectProjectToEdit = (projectId) => {
     const projectFound = projects.find((p) => p.id === projectId);
@@ -19,23 +27,46 @@ export default function Projects() {
     }
   };
 
+  const onCardClick = (projectId) => {
+    navigate(`/projects/${projectId}`);
+  };
+
+  const handleCardClick = (event, projectId) => {
+    // Verificar se o clique ocorreu nos botões de editar ou excluir
+    const isEditButton = event.target.classList.contains(styles["edit_button"]);
+    const isDeleteButton = event.target.classList.contains(
+      styles["delete_button"]
+    );
+
+    // Se clicou nos botões, não chamar a função do card
+    if (isEditButton || isDeleteButton) {
+      return;
+    }
+
+    // Caso contrário, chamar a função do card
+    onCardClick(projectId);
+  };
+
   useEffect(() => {
-    fetch("http://localhost:5000/projects", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setProjects(data);
+    setTimeout(() => {
+      fetch("http://localhost:5000/projects", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
       })
-      .catch((err) => console.log(err));
+        .then((response) => response.json())
+        .then((data) => {
+          setProjects(data);
+          setRemoveLoading(true);
+        })
+        .catch((err) => console.log(err));
+    }, 300);
   }, []);
 
   function handleDeleteProject(id) {
     const confirm = window.confirm(
-      "Tem certeza que deseja deletar este projeto?"
+      "Tem certeza que deseja excluir este projeto?"
     );
 
     if (!confirm) {
@@ -51,9 +82,9 @@ export default function Projects() {
       .then((response) => response.json())
       .then(() => {
         setProjects(projects.filter((project) => project.id !== id));
-        toast.success("Projeto deletado com sucesso");
+        toast.success("Projeto excluído com sucesso");
       })
-      .catch((err) => toast.error("Erro ao deletar o projeto"));
+      .catch((err) => toast.error("Erro ao excluir o projeto"));
   }
 
   return (
@@ -79,7 +110,11 @@ export default function Projects() {
       <div className={styles.project_list}>
         {projects.length > 0 &&
           projects.map((project) => (
-            <div key={project.id} className={styles.project_card}>
+            <div
+              key={project.id}
+              className={styles.project_card}
+              onClick={(event) => handleCardClick(event, project.id)}
+            >
               <h4>{project.name}</h4>
               <p>
                 <span>Orçamento: </span>R${project.investment}
@@ -107,6 +142,13 @@ export default function Projects() {
               </div>
             </div>
           ))}
+        {!removeLoading && <Loader />}
+        {removeLoading && projects.length === 0 && (
+          <div className={styles.no_projects}>
+            <span>Ops...Nenhum projeto encontrado!</span>
+            <FaSadTear className={styles.no_projects_icon} />
+          </div>
+        )}
         {isUpdateModalOpen && (
           <UpdateProjectModal
             isUpdateModalOpen={isUpdateModalOpen}

@@ -17,6 +17,10 @@ export default function UpdateProjectModal({
 
   const navigate = useNavigate();
 
+  function handleResetInputValues() {
+    setIsUpdateModalOpen(false);
+  }
+
   useEffect(() => {
     fetch("http://localhost:5000/categories", {
       method: "GET",
@@ -136,9 +140,24 @@ export default function UpdateProjectModal({
                   </label>
                 </div>
                 <div className={style.buttons}>
-                  <button className={style.close_window}>Fechar</button>
-                  <button type="submit" className={style.submit_button}>
-                    Enviar
+                  {!projectName || !projectInvestment || !projectCategory.id ? (
+                    <button
+                      disabled={true}
+                      type="submit"
+                      className={style.submit_button}
+                    >
+                      Enviar
+                    </button>
+                  ) : (
+                    <button type="submit" className={style.submit_button}>
+                      Enviar
+                    </button>
+                  )}
+                  <button
+                    className={style.close_window}
+                    onClick={() => handleResetInputValues()}
+                  >
+                    Fechar
                   </button>
                 </div>
               </form>

@@ -127,6 +127,12 @@
   color: #ffbb33;
 }
 
+.submit_button:disabled {
+  background-color: #7b7b7b;
+  cursor: not-allowed;
+  color: #fff;
+}
+
 @keyframes fade {
   from {
     opacity: 0;

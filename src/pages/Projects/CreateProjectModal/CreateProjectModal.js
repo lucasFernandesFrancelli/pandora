@@ -115,9 +115,13 @@ export default function CreateProjectModal({ isOpen, setIsOpen, setProjects }) {
                       value={projectCategory.id}
                       placeholder="Selecione uma categoria"
                     >
-                      <option disabled>Selecione uma categoria</option>
+                      <option>Selecione uma categoria</option>
                       {categories.map((category) => (
-                        <option value={category.id} key={category.id}>
+                        <option
+                          value={category.id}
+                          key={category.id}
+                          defaultValue={category.id}
+                        >
                           {category.name}
                         </option>
                       ))}
@@ -131,9 +135,23 @@ export default function CreateProjectModal({ isOpen, setIsOpen, setProjects }) {
                   >
                     Fechar
                   </button>
-                  <button type="submit" className={style.submit_button}>
-                    Enviar
-                  </button>
+
+                  {!projectName ||
+                  !projectInvestment ||
+                  projectCategory.id === undefined ||
+                  projectCategory.name === "Selecione uma categoria" ? (
+                    <button
+                      disabled={true}
+                      type="submit"
+                      className={style.submit_button}
+                    >
+                      Enviar
+                    </button>
+                  ) : (
+                    <button type="submit" className={style.submit_button}>
+                      Enviar
+                    </button>
+                  )}
                 </div>
               </form>
             </div>

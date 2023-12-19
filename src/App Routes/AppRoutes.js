@@ -8,6 +8,7 @@ import CreateProject from "../pages/CreateProject/CreateProject";
 import Projects from "../pages/Projects/Projects";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
+import Project from "../pages/Project/Project";
 
 export default function AppRoutes() {
   return (
@@ -20,6 +21,7 @@ export default function AppRoutes() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/create-project" element={<CreateProject />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/projects/:id" element={<Project />} />
         </Routes>
       </div>
       <Footer />

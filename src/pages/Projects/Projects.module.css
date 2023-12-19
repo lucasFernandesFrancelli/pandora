@@ -32,14 +32,15 @@
 
 .project_card {
   padding: 1em;
-
   border-radius: 5px;
   min-width: 15%;
   max-width: 15%;
-  min-height: 27vh;
+  min-height: 20vh;
+  max-height: 23vh;
   margin: 0.5em;
   box-shadow: #7a7a7a 0px 0px 3.5px;
   transition: background-color 0.5s ease;
+  cursor: pointer;
 }
 
 .project_card:hover {
@@ -111,7 +112,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 5em;
+  padding-top: 2em;
 }
 
 .delete_button {
@@ -151,4 +152,22 @@
 
 .edit_button:hover {
   color: #ffbb33;
+}
+
+.no_projects {
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.no_projects span {
+  font-size: 1.5em;
+  color: #7a7a7a;
+  padding: 1em;
+}
+
+.no_projects_icon {
+  font-size: 2em;
+  color: #7a7a7a;
+  padding-top: 0.2em;
 }
