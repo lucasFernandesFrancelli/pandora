@@ -88,6 +88,20 @@ export default function Service({
   function updateService(e) {
     e.preventDefault();
 
+    const servicesFiltered = project.services.filter(
+      (service) => service.id !== selectedServiceId
+    );
+
+    const costSum = servicesFiltered.reduce(
+      (acc, curr) => acc + Number(curr.cost),
+      0
+    );
+
+    if (costSum + Number(serviceCost) > project.investment) {
+      toast.error("O custo do serviço ultrapassa o orçamento do projeto");
+      return;
+    }
+
     fetch(`http://localhost:5000/services/${selectedServiceId}`, {
       method: "PUT",
       headers: {

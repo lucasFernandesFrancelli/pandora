@@ -1,41 +1,5 @@
 {
-  "projects": [
-    {
-      "name": "Projeto 1",
-      "investment": "1200",
-      "category": {
-        "id": "2",
-        "name": "Desenvolvimento"
-      },
-      "cost": 0,
-      "services": [],
-      "id": 1
-    },
-    {
-      "name": "Projeto 2 ATUALIZADO",
-      "investment": "5000",
-      "category": {
-        "id": "3",
-        "name": "Design"
-      },
-      "cost": 0,
-      "services": [
-        {
-          "id": 13,
-          "name": "Novo Serviço 12",
-          "cost": "100",
-          "description": "Este é um novo serviço"
-        },
-        {
-          "id": 14,
-          "name": "Serviço 2",
-          "cost": "4800",
-          "description": "asdasdasdada"
-        }
-      ],
-      "id": 2
-    }
-  ],
+  "projects": [],
   "categories": [
     {
       "id": 1,
@@ -162,24 +126,6 @@
         "id": "2"
       },
       "id": 12
-    },
-    {
-      "name": "Novo Serviço 12",
-      "cost": "100",
-      "description": "Este é um novo serviço",
-      "project": {
-        "id": "2"
-      },
-      "id": 13
-    },
-    {
-      "name": "Serviço 2",
-      "cost": "4800",
-      "description": "asdasdasdada",
-      "project": {
-        "id": "2"
-      },
-      "id": 14
     }
   ]
 }

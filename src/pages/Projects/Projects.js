@@ -31,18 +31,15 @@ export default function Projects() {
   };
 
   const handleCardClick = (event, projectId) => {
-    // Verificar se o clique ocorreu nos botões de editar ou excluir
     const isEditButton = event.target.classList.contains(styles["edit_button"]);
     const isDeleteButton = event.target.classList.contains(
       styles["delete_button"]
     );
 
-    // Se clicou nos botões, não chamar a função do card
     if (isEditButton || isDeleteButton) {
       return;
     }
 
-    // Caso contrário, chamar a função do card
     onCardClick(projectId);
   };
 

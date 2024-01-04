@@ -13,12 +13,12 @@ export default function Header() {
           <li className={styles.menu_items}>
             <Link to="/">Home</Link>
           </li>
-          <li className={styles.menu_items}>
+          {/* <li className={styles.menu_items}>
             <Link to="/contact">Contato</Link>
           </li>
           <li className={styles.menu_items}>
             <Link to="/about">Sobre</Link>
-          </li>
+          </li> */}
           <li className={styles.menu_items}>
             <Link to="/projects"> Projetos</Link>
           </li>

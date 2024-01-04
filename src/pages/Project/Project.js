@@ -6,6 +6,7 @@ import Service from "./Services/Service";
 import { BsPencil, BsTrash } from "react-icons/bs";
 import { Tooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
+import { toast } from "react-toastify";
 
 export default function Project() {
   const [project, setProject] = useState({});
@@ -27,6 +28,14 @@ export default function Project() {
   };
 
   const handleDeleteService = (serviceId) => {
+    const confirm = window.confirm(
+      "Tem certeza que deseja excluir este serviço?"
+    );
+
+    if (!confirm) {
+      return;
+    }
+
     fetch(`http://localhost:5000/services/${serviceId}`, {
       method: "DELETE",
       headers: {
@@ -44,6 +53,9 @@ export default function Project() {
             ...project.services.filter((service) => service.id !== serviceId),
           ],
         }),
+      }).then(() => {
+        toast.success("Serviço excluído com sucesso");
+        window.location.reload();
       });
     });
   };
