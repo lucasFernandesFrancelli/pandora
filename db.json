@@ -1,0 +1,131 @@
+{
+  "projects": [],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Infra"
+    },
+    {
+      "id": 2,
+      "name": "Desenvolvimento"
+    },
+    {
+      "id": 3,
+      "name": "Design"
+    },
+    {
+      "id": 4,
+      "name": "Planejamento"
+    }
+  ],
+  "services": [
+    {
+      "name": "Serviço teste",
+      "cost": "12000",
+      "description": "Um servicaslkdasldjasldjkaskldalss",
+      "project": {
+        "id": "1"
+      },
+      "id": 1
+    },
+    {
+      "name": "TESTE",
+      "cost": "4",
+      "description": "asdasdasd",
+      "project": {
+        "id": "2"
+      },
+      "id": 2
+    },
+    {
+      "name": "Lucas F",
+      "cost": "1",
+      "description": "asdasdasd",
+      "project": {
+        "id": "2"
+      },
+      "id": 3
+    },
+    {
+      "name": "TESTE",
+      "cost": "3",
+      "description": "asdasdasda",
+      "project": {
+        "id": "2"
+      },
+      "id": 4
+    },
+    {
+      "name": "Novo Serviço",
+      "cost": "1000",
+      "description": "esse é um novo serviço de teste",
+      "project": {
+        "id": "2"
+      },
+      "id": 5
+    },
+    {
+      "name": "TESTE",
+      "cost": "012312",
+      "description": "asasdadasdas",
+      "project": {
+        "id": "2"
+      },
+      "id": 6
+    },
+    {
+      "name": "TESTE",
+      "cost": "02",
+      "description": "asdasdasdas",
+      "project": {
+        "id": "2"
+      },
+      "id": 7
+    },
+    {
+      "name": "Projeto 1",
+      "cost": "0123123",
+      "description": "asdasdasdasd",
+      "project": {
+        "id": "2"
+      },
+      "id": 8
+    },
+    {
+      "name": "asdasdasdsa",
+      "cost": "0123123",
+      "description": "asdasdasdasd",
+      "project": {
+        "id": "2"
+      },
+      "id": 9
+    },
+    {
+      "name": "TESTE",
+      "cost": "012312",
+      "description": "asdasdasd",
+      "project": {
+        "id": "2"
+      },
+      "id": 10
+    },
+    {
+      "name": "asdadasdasdasda",
+      "cost": "3",
+      "description": "llllllll",
+      "project": {
+        "id": "2"
+      },
+      "id": 11
+    },
+    {
+      "name": "asdasd",
+      "cost": "4",
+      "description": "asdasdasdasda",
+      "project": {
+        "id": "2"
+      },
+      "id": 12
+    }
+  ]
+}

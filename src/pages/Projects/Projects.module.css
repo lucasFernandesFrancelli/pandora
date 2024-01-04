@@ -1,0 +1,173 @@
+.projects_header {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 2em;
+  padding-left: 4.3em;
+  padding-right: 4.3em;
+}
+
+.create_project_button {
+  background-color: #222;
+  color: #fff;
+  padding: 0.7em 1em;
+  text-decoration: none;
+  transition: 0.5s;
+  border-radius: 6px;
+  margin-top: 5%;
+  border: none;
+  cursor: pointer;
+}
+
+.create_project_button:hover {
+  color: #ffbb33;
+}
+
+.project_list {
+  display: flex;
+  padding: 4em;
+  flex-wrap: wrap;
+
+  align-items: center;
+}
+
+.project_card {
+  padding: 1em;
+  border-radius: 5px;
+  min-width: 15%;
+  max-width: 15%;
+  min-height: 20vh;
+  max-height: 23vh;
+  margin: 0.5em;
+  box-shadow: #7a7a7a 0px 0px 3.5px;
+  transition: background-color 0.5s ease;
+  cursor: pointer;
+}
+
+.project_card:hover {
+  transform: translateY(-5px) scale(1.005) translateZ(0);
+  background-position: 100% 0;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  background-color: #ffbb33;
+}
+
+.project_card:hover > h4 {
+  background-position: 100% 0;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  color: #fff;
+}
+
+.project_card h4 {
+  background-color: #222;
+  border-radius: 5px;
+  color: #ffbb33;
+  padding: 0.4em;
+  margin-bottom: 1.3em;
+  font-size: 1em;
+}
+
+.project_card p {
+  font-size: 1.1em;
+  margin-bottom: 0.5em;
+}
+
+.project_card p span {
+  font-weight: bold;
+}
+
+.category_text {
+  display: flex;
+  align-items: center;
+}
+
+.category_text span {
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ccc;
+  margin-right: 5px;
+}
+
+.category_text .infra {
+  background-color: #f03251;
+}
+
+.category_text .desenvolvimento {
+  background-color: #e27cd5;
+}
+
+.category_text .design {
+  background-color: #4e65e9;
+}
+
+.category_text .planejamento {
+  background-color: #99e94e;
+}
+
+.card_actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 2em;
+}
+
+.delete_button {
+  cursor: pointer;
+  font-size: 0.8em;
+  color: #222;
+  background-color: #fff;
+  color: #222;
+  text-decoration: none;
+  transition: 0.5s;
+  border-radius: 6px;
+  border: 1px solid black;
+  cursor: pointer;
+  width: 8em;
+  padding: 0.7em 1em;
+}
+
+.delete_button:hover {
+  color: #ffbb33;
+}
+
+.edit_button {
+  cursor: pointer;
+  font-size: 0.8em;
+  color: #222;
+  background-color: #222;
+  color: #fff;
+  padding: 0.7em 1em;
+  text-decoration: none;
+  transition: 0.5s;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  width: 8em;
+  text-align: center;
+}
+
+.edit_button:hover {
+  color: #ffbb33;
+}
+
+.no_projects {
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.no_projects span {
+  font-size: 1.5em;
+  color: #7a7a7a;
+  padding: 1em;
+}
+
+.no_projects_icon {
+  font-size: 2em;
+  color: #7a7a7a;
+  padding-top: 0.2em;
+}
