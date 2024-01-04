@@ -116,7 +116,11 @@ export default function Projects() {
             >
               <h4>{project.name}</h4>
               <p>
-                <span>Orçamento: </span>R${project.investment}
+                <span>Orçamento: </span>
+                {Number(project.investment).toLocaleString("pt-BR", {
+                  style: "currency",
+                  currency: "BRL",
+                })}
               </p>
               <p className={styles.category_text}>
                 <span
